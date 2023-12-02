@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import "./ShowUsers.css";
 
-function ShowUsers({ setShowModal, usersBe }) {
+function ShowUsers({ setShowModal, userInform }) {
   return (
     <>
-      <div className={usersBe ? "hidden" : "showUsers flex"}>
+      <div className={userInform.length ? "hidden" : "showUsers flex"}>
         <h1 className="noUsers">No Users</h1>
       </div>
       <div
@@ -16,24 +16,30 @@ function ShowUsers({ setShowModal, usersBe }) {
         <h3>Create User</h3>
       </div>
       <div className="users">
-        <div className="user flex">
-          <div className="userImg">
-            <img
-              src="https://www.japantimes.co.jp/uploads/imported_images/uploads/2022/12/np_file_200271.jpeg"
-              alt="User Image"
-            />
-          </div>
-          <div className="userName userItems">
-            <h1>Leo Messi, 36 age</h1>
-          </div>
-          <div className="userFrom userItems">
-            <h3>From: Argentina</h3>
-          </div>
-          <div className="userGender userItems">
-            <h3>Gender: male</h3>
-          </div>
-          <button className="userDel">Delete</button>
-        </div>
+        {userInform.map((inform, i) => {
+          return (
+            <div className="user flex" key={i}>
+              <div className="userImg">
+                <img src={inform.imgURL} alt="User Image" />
+              </div>
+              <div className="userName userItems">
+                <h1>
+                  {inform.firstName} {inform.lastName}, {inform.age} age
+                </h1>
+              </div>
+              <div className="userFrom userItems">
+                <h3>From: {inform.from}</h3>
+              </div>
+              <div className="userJob userItems">
+                <h3>Job: {inform.job}</h3>
+              </div>
+              <div className="userGender userItems">
+                <h3>Gender: {inform.gender}</h3>
+              </div>
+              <button className="userDel">Delete</button>
+            </div>
+          );
+        })}
       </div>
     </>
   );
