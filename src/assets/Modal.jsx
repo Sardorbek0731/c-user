@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./Modal.css";
 
-function Modal({ showModal, setShowModal }) {
+function Modal({ showModal, setShowModal, setUsersBe }) {
   return (
     <div className="modal">
       <div className={showModal ? "overlay flex" : "hidden"}>
@@ -75,7 +75,16 @@ function Modal({ showModal, setShowModal }) {
               </div>
             </label>
           </div>
-          <button className="submit">Submit</button>
+          <button
+            className="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowModal(false);
+              setUsersBe(true);
+            }}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

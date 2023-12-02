@@ -9,13 +9,18 @@ import Modal from "./assets/Modal.jsx";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [usersBe, setUsersBe] = useState(false);
 
   return (
     <>
       <Header />
-      <ShowUsers setShowModal={setShowModal} />
+      <ShowUsers setShowModal={setShowModal} usersBe={usersBe} />
       <Footer />
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setUsersBe={setUsersBe}
+      />
     </>
   );
 }
