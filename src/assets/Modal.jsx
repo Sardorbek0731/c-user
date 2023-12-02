@@ -1,10 +1,16 @@
+/* eslint-disable react/prop-types */
 import "./Modal.css";
 
-function Modal() {
+function Modal({ showModal, setShowModal }) {
   return (
     <div className="modal">
-      <div className="overlay flex">
-        <div className="modalClose flex">
+      <div className={showModal ? "overlay flex" : "hidden"}>
+        <div
+          className="modalClose flex"
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

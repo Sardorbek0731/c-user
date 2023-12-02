@@ -1,5 +1,5 @@
-// CSS files
 import "./App.css";
+import { useState } from "react";
 
 // JSX files
 import Header from "./assets/Header.jsx";
@@ -8,12 +8,14 @@ import Footer from "./assets/Footer";
 import Modal from "./assets/Modal.jsx";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Header />
-      <ShowUsers />
+      <ShowUsers setShowModal={setShowModal} />
       <Footer />
-      <Modal />
+      <Modal showModal={showModal} setShowModal={setShowModal} />
     </>
   );
 }
