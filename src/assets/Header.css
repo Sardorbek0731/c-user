@@ -1,0 +1,20 @@
+.header {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2.1rem 10rem;
+  border-bottom: 1px solid rgba(49, 48, 64, 0.12);
+  background-color: #fff;
+}
+.logo h1 {
+  font-size: 2rem;
+  user-select: none;
+}
+.spanLogo {
+  color: rgb(255, 106, 0);
+}
+.howManyUsers h2 {
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+}
