@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import "./Header.css";
 
-function Header() {
+function Header({ userInform }) {
   return (
     <div className="header flex">
       <div className="logo">
@@ -9,7 +10,9 @@ function Header() {
         </h1>
       </div>
       <div className="howManyUsers">
-        <h2>No users :(</h2>
+        <h2>
+          {userInform.length ? "You have: " + userInform.length : "No user :("}
+        </h2>
       </div>
     </div>
   );

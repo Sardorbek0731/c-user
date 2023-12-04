@@ -36,7 +36,7 @@
 
 /* Users */
 .users {
-  padding: 2.7rem 8.7rem;
+  padding: 1.5rem 5rem 2.7rem 8.7rem;
   align-items: center;
   width: 100%;
   display: grid;
@@ -46,11 +46,16 @@
   flex-direction: column;
   justify-content: center;
   padding: 2.2rem;
-  width: 20.5rem;
-  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.15);
+  width: 21rem;
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1.4rem;
   margin: 1.3rem;
-  margin-bottom: 2.7rem;
+  margin-top: 2.5rem;
+  transition: all 0.4s;
+}
+.user:hover {
+  transform: scale(1.02) rotate(-5deg);
 }
 .userImg img {
   width: 100%;

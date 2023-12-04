@@ -2,10 +2,10 @@ import "./App.css";
 import { useState } from "react";
 
 // JSX files
-import Header from "./assets/Header.jsx";
-import ShowUsers from "./assets/ShowUsers.jsx";
-import Footer from "./assets/Footer";
-import Modal from "./assets/Modal.jsx";
+import Header from "./components/navbar/Header.jsx";
+import ShowUsers from "./components/showUser/showUsers.jsx";
+import Footer from "./components/footer/Footer.jsx";
+import Modal from "./components/modal/Modal.jsx";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -17,12 +17,21 @@ function App() {
     });
   };
 
+  const deleteUser = (id) => {
+    const deleted = userInform.filter((inform) => {
+      return inform.id !== id;
+    });
+
+    setUserInform(deleted);
+  };
+
   return (
     <>
-      <Header />
+      <Header userInform={userInform} />
       <ShowUsers
         setShowModal={setShowModal}
         userInform={userInform}
+        deleteUser={deleteUser}
       />
       <Footer />
       <Modal

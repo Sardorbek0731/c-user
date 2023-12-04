@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./Modal.css";
 import { useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Modal({ showModal, setShowModal, informsUsers }) {
   const imgURL = useRef(),
@@ -98,6 +99,7 @@ function Modal({ showModal, setShowModal, informsUsers }) {
                 from: from.current.value,
                 job: job.current.value,
                 gender: gender.current.value,
+                id: uuidv4(),
               };
 
               informsUsers(inform);

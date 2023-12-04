@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./ShowUsers.css";
 
-function ShowUsers({ setShowModal, userInform }) {
+function ShowUsers({ setShowModal, userInform, deleteUser }) {
   return (
     <>
       <div className={userInform.length ? "hidden" : "showUsers flex"}>
@@ -15,7 +15,7 @@ function ShowUsers({ setShowModal, userInform }) {
       >
         <h3>Create User</h3>
       </div>
-      <div className="users">
+      <div className={userInform.length ? "users" : "hidden"}>
         {userInform.map((inform, i) => {
           return (
             <div className="user flex" key={i}>
@@ -36,7 +36,14 @@ function ShowUsers({ setShowModal, userInform }) {
               <div className="userGender userItems">
                 <h3>Gender: {inform.gender}</h3>
               </div>
-              <button className="userDel">Delete</button>
+              <button
+                className="userDel"
+                onClick={() => {
+                  deleteUser(inform.id);
+                }}
+              >
+                Delete
+              </button>
             </div>
           );
         })}
