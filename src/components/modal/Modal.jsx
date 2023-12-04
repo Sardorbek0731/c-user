@@ -40,50 +40,54 @@ function Modal({ showModal, setShowModal, informsUsers }) {
           <div className="img input">
             <label className="flex">
               Image URL:
-              <input type="text" ref={imgURL} />
+              <input type="url" ref={imgURL} required />
             </label>
           </div>
           <div className="firstName input">
             <label className="flex">
               First Name:
-              <input type="text" ref={firstName} />
+              <input type="text" ref={firstName} required />
             </label>
           </div>
           <div className="lastName input">
             <label className="flex">
               Last Name:
-              <input type="text" ref={lastName} />
+              <input type="text" ref={lastName} required />
             </label>
           </div>
           <div className="age input">
             <label className="flex">
               Age:
-              <input type="text" ref={age} />
+              <input type="number" ref={age} required />
             </label>
           </div>
           <div className="from input">
             <label className="flex">
               From:
-              <input type="text" ref={from} />
+              <input type="text" ref={from} required />
             </label>
           </div>
           <div className="job input">
             <label className="flex">
               Job:
-              <input type="text" ref={job} />
+              <input type="text" ref={job} required />
             </label>
           </div>
-          <div className="gender">
-            <label className="flex">
-              Gender:
-              <div className="male genderItem flex">
-                Male
-                <input type="radio" ref={gender} name="gender" />
-              </div>
-              <div className="feMale genderItem flex">
-                Female
-                <input type="radio" ref={gender} name="gender" />
-              </div>
+          <div className="gender flex">
+            Gender:
+            <label className="genderItem flex">
+              Male
+              <input
+                type="radio"
+                required
+                ref={gender}
+                name="gender"
+                value="Male"
+              />
+            </label>
+            <label className="genderItem flex">
+              Female
+              <input type="radio" required name="gender" value="Female" />
             </label>
           </div>
           <button
@@ -98,10 +102,11 @@ function Modal({ showModal, setShowModal, informsUsers }) {
                 age: age.current.value,
                 from: from.current.value,
                 job: job.current.value,
-                gender: gender.current.value,
+                gender: gender.current.checked ? "Male" : "Female",
                 id: uuidv4(),
               };
 
+              console.log(inform);
               informsUsers(inform);
 
               form.current.reset();
